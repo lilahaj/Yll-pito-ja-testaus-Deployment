@@ -12,7 +12,6 @@ jobs:
 
     defaults:
       run:
-        # NOTE: change this to just '.' or the correct folder name depending on how your repo is structured in GitHub.
         working-directory: "."
 
     steps:
