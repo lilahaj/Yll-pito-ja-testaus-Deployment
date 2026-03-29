@@ -19,8 +19,9 @@ import slice from "../src/slice.js";
 
 describe("More simple coverage tests", () => {
   it("countBy counts elements", () => {
-    // BUG: Should be { '3': 2, '5': 1 }
-    // This will fail because the returned object has { '3': 1, '5': 0 }
+    // BUGI LÖYDETTY: Alkuperäisesti testattiin vain onko tulos ylipäätään objekti: to.be.an("object").
+    // Kun testataan tarkkaa dataa to.deep.equal() -metodilla kuvitteellisilla array-arvoilla,
+    // huomataan että koodin laskurien alustus alkaa virheellisesti nollasta jättäen tulokset yhden liian pieneksi (1 ja 0).
     expect(countBy(["one", "two", "three"], (x) => x.length)).to.deep.equal({
       3: 2,
       5: 1,
@@ -28,10 +29,13 @@ describe("More simple coverage tests", () => {
   });
 
   it("defaultTo returns default value for null/undefined/NaN", () => {
+    // Oikein toimivat reunaehdot (happy path null/undefined/numeroiden kanssa)
     expect(defaultTo(1, 10)).to.equal(1);
     expect(defaultTo(undefined, 10)).to.equal(10);
-    // BUG: Should return 10 but returns NaN
-    // This will fail
+
+    // BUGI LÖYDETTY: JSDoc-kommenttien dokumentaatio väittää funktiota turvalliseksi NaN (Not a Number) viittauksille.
+    // Toteutettu löysä vertailu (value == null) ei kuitenkaan suojaa NaN:lta, jolloin se vuotaa läpi
+    // odotetun oletusarvon (10) sijaan tässä nimenomaisessa testissä.
     expect(defaultTo(Number.NaN, 10)).to.equal(10);
   });
 

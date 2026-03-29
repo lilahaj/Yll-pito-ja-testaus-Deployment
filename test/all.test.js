@@ -27,12 +27,13 @@ describe("Simple coverage tests", () => {
   });
 
   it("camelCase should convert to camel case", () => {
-    // BUG: Should be "fooBar", but it returns " fooBar"
-    // This will fail
+    // BUGI LÖYDETTY: Alkuperäinen löysä to.be.a("string") tarkistus meni läpi virheestä huolimatta.
+    // Tarkka to.equal("fooBar") paljastaa koodivirheen, sillä menetelmä jättää ylimääräisen välilyönnin merkkijonon alkuun (" fooBar").
     expect(camelCase("Foo Bar")).to.equal("fooBar");
   });
 
   it("capitalize should capitalize the first letter", () => {
+    // Onnistunut happy path -testi: tarkistaa että Fred muuttuu takaisin oikeaan kirjainkoon.
     expect(capitalize("FRED")).to.equal("Fred");
   });
 
@@ -45,8 +46,8 @@ describe("Simple coverage tests", () => {
   });
 
   it("clamp should restrict a number", () => {
-    // BUG: 10 should be clamped to 5 but it clamps to -5
-    // This will fail
+    // BUGI LÖYDETTY: Syötteen 10 pitäisi rajautua ylärajaan 5.
+    // Koodin käsittämätön käänteinen logiikka pakottaa tuloksen kuitenkin virheellisesti alarajaan (-5).
     expect(clamp(10, -5, 5)).to.equal(5);
   });
 
