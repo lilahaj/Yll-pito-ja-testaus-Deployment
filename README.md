@@ -1,4 +1,8 @@
-[![Coverage Status](https://coveralls.io/repos/github/lilahaj/Yll-pito-ja-testaus-Deployment/badge.svg?branch=main)](https://coveralls.io/github/lilahaj/Yll-pito-ja-testaus-Deployment?branch=main)
+<p align="center">
+  <a href="https://coveralls.io/github/lilahaj/Yll-pito-ja-testaus-Deployment?branch=main">
+    <img src="https://coveralls.io/repos/github/lilahaj/Yll-pito-ja-testaus-Deployment/badge.svg?branch=main" alt="Coverage Status" />
+  </a>
+</p>
 
 # Student template
 
