@@ -18,6 +18,7 @@ Individuals who remove or modify the license file will also carry the consequenc
 
 ## Tehtävän dokumentaatio
 
+
 ### 1. Toiminta ja asennus
 
 Kirjaston testaus toteutettiin Mochalla ja Chailla, koodikattavuuden mittauksessa käytettiin c8:a. CI/CD-putki on luotu GitHub Actions -järjestelmään. Työnkulkuihin kuuluu automaattinen testien ajo useilla eri Node.js-versioilla sekä lähetys Coveralls-palveluun, kun koodia pushataan mainiin.
