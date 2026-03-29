@@ -19,18 +19,20 @@ import slice from "../src/slice.js";
 
 describe("More simple coverage tests", () => {
   it("countBy counts elements", () => {
-    const users = [
-      { user: "barney", active: true },
-      { user: "betty", active: true },
-      { user: "fred", active: false },
-    ];
-    expect(countBy(users, (value) => value.active)).to.be.an("object");
+    // BUG: Should be { '3': 2, '5': 1 }
+    // This will fail because the returned object has { '3': 1, '5': 0 }
+    expect(countBy(["one", "two", "three"], (x) => x.length)).to.deep.equal({
+      3: 2,
+      5: 1,
+    });
   });
 
   it("defaultTo returns default value for null/undefined/NaN", () => {
-    expect(defaultTo(1, 10)).to.be.a("number");
-    expect(defaultTo(undefined, 10)).to.be.a("number");
-    expect(defaultTo(NaN, 10)).to.be.a("number");
+    expect(defaultTo(1, 10)).to.equal(1);
+    expect(defaultTo(undefined, 10)).to.equal(10);
+    // BUG: Should return 10 but returns NaN
+    // This will fail
+    expect(defaultTo(Number.NaN, 10)).to.equal(10);
   });
 
   it("difference returns difference of arrays", () => {

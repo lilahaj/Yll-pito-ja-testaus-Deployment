@@ -27,7 +27,9 @@ describe("Simple coverage tests", () => {
   });
 
   it("camelCase should convert to camel case", () => {
-    expect(camelCase("Foo Bar")).to.be.a("string");
+    // BUG: Should be "fooBar", but it returns " fooBar"
+    // This will fail
+    expect(camelCase("Foo Bar")).to.equal("fooBar");
   });
 
   it("capitalize should capitalize the first letter", () => {
@@ -43,7 +45,9 @@ describe("Simple coverage tests", () => {
   });
 
   it("clamp should restrict a number", () => {
-    expect(clamp(-10, -5, 5)).to.be.a("number");
+    // BUG: 10 should be clamped to 5 but it clamps to -5
+    // This will fail
+    expect(clamp(10, -5, 5)).to.equal(5);
   });
 
   it("divide should divide two numbers", () => {
