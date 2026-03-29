@@ -30,3 +30,6 @@ jobs:
         uses: coverallsapp/github-action@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: npm run coverage
+        continue-on-error: true

@@ -33,3 +33,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           base-path: "."
+
+      - name: Run tests & generate coverage
+        run: npm run coverage
+        continue-on-error: true
