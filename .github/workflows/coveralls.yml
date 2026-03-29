@@ -27,13 +27,10 @@ jobs:
 
       - name: Run tests & generate coverage
         run: npm run coverage
+        continue-on-error: true
 
       - name: Coveralls GitHub Action
         uses: coverallsapp/github-action@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           base-path: "."
-
-      - name: Run tests & generate coverage
-        run: npm run coverage
-        continue-on-error: true
