@@ -1,5 +1,4 @@
-<a href='https://coveralls.io/github/lilahaj/Ohjelmistojen-yll-pito-ja-testaus?branch=main'><img src='https://coveralls.io/repos/github/lilahaj/Ohjelmistojen-yll-pito-ja-testaus/badge.svg?branch=main' alt='Coverage Status' /></a>
-
+<a href='https://coveralls.io/github/lilahaj/Yll-pito-ja-testaus-Deployment?branch=main'><img src='https://coveralls.io/repos/github/lilahaj/Yll-pito-ja-testaus-Deployment/badge.svg?branch=main' alt='Coverage Status' /></a>
 
 # Student template
 
